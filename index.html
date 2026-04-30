@@ -3,74 +3,155 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>UCSC iGEM 2026</title>
+  <title>UCSC iGEM 2026 — Melectin Project</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
   <header class="site-header">
     <div class="header-inner">
-      <div class="logo">
+      <a href="index.html" class="logo">
         <span class="logo-team">UCSC</span>
         <span class="logo-igem">iGEM 2026</span>
-      </div>
-      <nav class="nav">
-        <a href="#project">Project</a>
-        <a href="#team">Team</a>
-        <a href="#notebook">Notebook</a>
-        <a href="#results">Results</a>
-        <a href="#human-practices">Human Practices</a>
-      </nav>
+      </a>
+      <button class="nav-toggle-btn" aria-label="Toggle navigation" onclick="toggleNav()">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav" id="main-nav">
+        <li class="has-drop">
+          <a href="project/description.html">Project <span class="caret">▾</span></a>
+          <ul class="dropdown">
+            <li><a href="project/description.html">Description</a></li>
+            <li><a href="project/engineering.html">Engineering</a></li>
+            <li><a href="project/results.html">Results</a></li>
+          </ul>
+        </li>
+        <li class="has-drop">
+          <a href="wet-lab/experiments.html">Wet Lab <span class="caret">▾</span></a>
+          <ul class="dropdown">
+            <li><a href="wet-lab/experiments.html">Experiments</a></li>
+            <li><a href="wet-lab/parts.html">Parts</a></li>
+            <li><a href="wet-lab/protocols.html">Protocols</a></li>
+            <li><a href="wet-lab/data-logs.html">Data Logs</a></li>
+          </ul>
+        </li>
+        <li class="has-drop">
+          <a href="human-practices/integrated-hp.html">Human Practices <span class="caret">▾</span></a>
+          <ul class="dropdown">
+            <li><a href="human-practices/integrated-hp.html">Integrated HP</a></li>
+            <li><a href="human-practices/education.html">Education</a></li>
+          </ul>
+        </li>
+        <li class="has-drop">
+          <a href="team/members.html">Team <span class="caret">▾</span></a>
+          <ul class="dropdown">
+            <li><a href="team/members.html">Members</a></li>
+            <li><a href="team/attributions.html">Attributions</a></li>
+          </ul>
+        </li>
+        <li><a href="modeling/dry-lab.html">Modeling</a></li>
+        <li><a href="safety.html">Safety</a></li>
+        <li class="has-drop">
+          <a href="#">More <span class="caret">▾</span></a>
+          <ul class="dropdown">
+            <li><a href="entrepreneurship.html">Entrepreneurship</a></li>
+            <li><a href="collaborations.html">Collaborations</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="notebooks.html">Notebooks</a></li>
+            <div class="dropdown-divider"></div>
+            <li class="dropdown-section">Awards</li>
+            <li><a href="award/inspiration.html">Inspiration</a></li>
+            <li><a href="award/implementation.html">Implementation</a></li>
+            <li><a href="award/inclusivity.html">Inclusivity</a></li>
+            <li><a href="award/sustainability.html">Sustainability</a></li>
+            <li><a href="award/hardware.html">Hardware</a></li>
+          </ul>
+        </li>
+      </ul>
     </div>
   </header>
 
   <section class="hero">
     <div class="hero-content">
       <p class="hero-label">UC Santa Cruz &mdash; iGEM 2026</p>
-      <h1 class="hero-title">Project Title Here</h1>
+      <h1 class="hero-title">Accessible <em>Melectin</em> via Plant-Based Biosynthesis</h1>
       <p class="hero-sub">
-        A one- or two-sentence summary of your project goes here.
-        Describe the problem you're solving and your synthetic biology approach.
+        We're engineering duckweed to produce Melectin — a potent antimicrobial peptide from bee
+        venom — using an oleosin oil-body fusion strategy for low-cost, scalable purification.
+        Targeting Lyme disease, Parkinson's, and cancer.
       </p>
       <div class="hero-actions">
-        <a href="#project" class="btn btn-primary">Learn More</a>
-        <a href="#team" class="btn btn-outline">Meet the Team</a>
+        <a href="project/description.html" class="btn btn-primary">Learn More</a>
+        <a href="team/members.html" class="btn btn-outline">Meet the Team</a>
       </div>
     </div>
     <div class="hero-graphic" aria-hidden="true">
       <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="100" cy="100" r="70" fill="none" stroke="currentColor" stroke-width="2" opacity="0.3"/>
-        <circle cx="100" cy="100" r="45" fill="none" stroke="currentColor" stroke-width="2" opacity="0.5"/>
-        <circle cx="100" cy="100" r="20" fill="currentColor" opacity="0.2"/>
-        <line x1="100" y1="30" x2="100" y2="170" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
-        <line x1="30" y1="100" x2="170" y2="100" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
-        <circle cx="100" cy="30" r="5" fill="currentColor" opacity="0.6"/>
-        <circle cx="100" cy="170" r="5" fill="currentColor" opacity="0.6"/>
-        <circle cx="30" cy="100" r="5" fill="currentColor" opacity="0.6"/>
-        <circle cx="170" cy="100" r="5" fill="currentColor" opacity="0.6"/>
+        <!-- Stylized peptide helix -->
+        <ellipse cx="100" cy="100" rx="72" ry="72" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".25"/>
+        <ellipse cx="100" cy="100" rx="48" ry="48" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".45"/>
+        <path d="M100,28 C130,50 130,90 100,100 C70,110 70,150 100,172"
+              fill="none" stroke="currentColor" stroke-width="2.5" opacity=".8"/>
+        <circle cx="100" cy="28"  r="5" fill="currentColor" opacity=".9"/>
+        <circle cx="100" cy="172" r="5" fill="currentColor" opacity=".9"/>
+        <circle cx="128" cy="65"  r="4" fill="currentColor" opacity=".7"/>
+        <circle cx="72"  cy="135" r="4" fill="currentColor" opacity=".7"/>
+        <circle cx="100" cy="100" r="7" fill="currentColor" opacity=".5"/>
       </svg>
     </div>
   </section>
 
-  <section class="cards" id="project">
-    <div class="cards-inner">
-      <div class="card">
-        <div class="card-icon">&#9652;</div>
-        <h2>The Problem</h2>
-        <p>Briefly describe the real-world problem your team is addressing and why it matters.</p>
-        <a href="#project" class="card-link">Read more &rarr;</a>
-      </div>
-      <div class="card">
-        <div class="card-icon">&#9650;</div>
-        <h2>Our Solution</h2>
-        <p>Explain your synthetic biology approach — the biological parts, systems, or circuits you are engineering.</p>
-        <a href="#project" class="card-link">Read more &rarr;</a>
-      </div>
-      <div class="card">
-        <div class="card-icon">&#11044;</div>
-        <h2>Results</h2>
-        <p>Summarize your key experimental results, what worked, and what you learned along the way.</p>
-        <a href="#results" class="card-link">Read more &rarr;</a>
+  <section class="highlights" id="project">
+    <div class="container">
+      <p class="section-label">The Challenge</p>
+      <h2 class="section-title">Why Melectin?</h2>
+      <p class="section-lead">
+        Melectin is a promising therapeutic peptide — but its source (bee venom collection) makes
+        it expensive and inaccessible. We're changing that.
+      </p>
+      <div class="cards-inner">
+        <div class="card">
+          <div class="card-icon">🦠</div>
+          <h2>Antimicrobial Action</h2>
+          <p>Melectin disrupts bacterial membranes via its cationic amphipathic helical structure,
+             showing activity against Lyme-associated <em>Borrelia</em> and drug-resistant pathogens.</p>
+          <a href="project/description.html#mechanism" class="card-link">Mechanism →</a>
+        </div>
+        <div class="card">
+          <div class="card-icon">🌿</div>
+          <h2>Duckweed Expression</h2>
+          <p>We use <em>Lemna minor</em> as our chassis — fast-growing, aquatic, and amenable to
+             stable transformation — to produce Melectin at scale without fermenters.</p>
+          <a href="project/description.html#duckweed" class="card-link">Expression system →</a>
+        </div>
+        <div class="card">
+          <div class="card-icon">💧</div>
+          <h2>Oil-Body Purification</h2>
+          <p>By fusing Melectin to oleosin, the peptide rides self-assembling oil bodies that
+             float out of cell lysate — eliminating costly chromatography steps.</p>
+          <a href="project/description.html#oleosin" class="card-link">Purification strategy →</a>
+        </div>
+        <div class="card">
+          <div class="card-icon">🧬</div>
+          <h2>Therapeutic Targets</h2>
+          <p>Melectin's unique properties position it against Lyme disease, Parkinson's
+             (amyloid disruption), and cancer cell lines — a multi-indication pipeline.</p>
+          <a href="project/description.html#applications" class="card-link">Applications →</a>
+        </div>
+        <div class="card">
+          <div class="card-icon">⚙️</div>
+          <h2>Engineering Cycle</h2>
+          <p>Three DBTL cycles refining codon optimization, signal peptide selection, and
+             protease cleavage site efficiency in our construct.</p>
+          <a href="project/engineering.html" class="card-link">Engineering →</a>
+        </div>
+        <div class="card">
+          <div class="card-icon">📊</div>
+          <h2>Results</h2>
+          <p>Summary of key results: transformation efficiency, protein yield, antimicrobial
+             activity assays, and purification benchmarking. [In progress]</p>
+          <a href="project/results.html" class="card-link">Results →</a>
+        </div>
       </div>
     </div>
   </section>
@@ -78,23 +159,47 @@
   <section class="team-teaser" id="team">
     <div class="team-inner">
       <h2>Meet the Team</h2>
-      <p>We are undergraduate researchers at the University of California, Santa Cruz,
-         united by a passion for synthetic biology and a drive to tackle real-world challenges.</p>
-      <a href="#team" class="btn btn-primary">See All Members</a>
+      <p>We are undergraduate and graduate researchers at UC Santa Cruz, united by a drive
+         to make powerful therapeutics accessible through synthetic biology.</p>
+      <a href="team/members.html" class="btn btn-primary">See All Members</a>
     </div>
   </section>
 
   <footer class="site-footer">
     <div class="footer-inner">
-      <p>&copy; 2026 UCSC iGEM &mdash; UC Santa Cruz</p>
-      <p class="footer-note">
-        Produced by the UCSC iGEM team. All content on this page is under a
-        <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">
-          Creative Commons Attribution 4.0 license
-        </a>.
-      </p>
+      <div class="footer-brand">
+        <div class="logo">
+          <span class="logo-team">UCSC</span>
+          <span class="logo-igem">iGEM 2026</span>
+        </div>
+        <p>University of California, Santa Cruz</p>
+      </div>
+      <div class="footer-links">
+        <a href="safety.html">Safety</a>
+        <a href="team/attributions.html">Attributions</a>
+        <a href="collaborations.html">Collaborations</a>
+        <a href="human-practices/integrated-hp.html">Human Practices</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 UCSC iGEM &mdash; UC Santa Cruz</span>
+      <span>Content under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a></span>
     </div>
   </footer>
+
+  <script>
+    function toggleNav() {
+      document.getElementById('main-nav').classList.toggle('open');
+    }
+    document.querySelectorAll('.has-drop > a').forEach(function(a) {
+      a.addEventListener('click', function(e) {
+        if (window.innerWidth <= 768) {
+          e.preventDefault();
+          this.parentElement.classList.toggle('open');
+        }
+      });
+    });
+  </script>
 
 </body>
 </html>

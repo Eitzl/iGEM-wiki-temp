@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Results — UCSC iGEM 2026</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../index.html" class="logo">
+        <span class="logo-team">UCSC</span>
+        <span class="logo-igem">iGEM 2026</span>
+      </a>
+      <button class="nav-toggle-btn" aria-label="Toggle navigation" onclick="toggleNav()">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav" id="main-nav">
+        <li class="has-drop">
+          <a href="description.html" class="active">Project <span class="caret">▾</span></a>
+          <ul class="dropdown">
+            <li><a href="description.html">Description</a></li>
+            <li><a href="engineering.html">Engineering</a></li>
+            <li><a href="results.html">Results</a></li>
+          </ul>
+        </li>
+        <li class="has-drop">
+          <a href="../wet-lab/experiments.html">Wet Lab <span class="caret">▾</span></a>
+          <ul class="dropdown">
+            <li><a href="../wet-lab/experiments.html">Experiments</a></li>
+            <li><a href="../wet-lab/parts.html">Parts</a></li>
+            <li><a href="../wet-lab/protocols.html">Protocols</a></li>
+            <li><a href="../wet-lab/data-logs.html">Data Logs</a></li>
+          </ul>
+        </li>
+        <li class="has-drop">
+          <a href="../human-practices/integrated-hp.html">Human Practices <span class="caret">▾</span></a>
+          <ul class="dropdown">
+            <li><a href="../human-practices/integrated-hp.html">Integrated HP</a></li>
+            <li><a href="../human-practices/education.html">Education</a></li>
+          </ul>
+        </li>
+        <li class="has-drop">
+          <a href="../team/members.html">Team <span class="caret">▾</span></a>
+          <ul class="dropdown">
+            <li><a href="../team/members.html">Members</a></li>
+            <li><a href="../team/attributions.html">Attributions</a></li>
+          </ul>
+        </li>
+        <li><a href="../modeling/dry-lab.html">Modeling</a></li>
+        <li><a href="../safety.html">Safety</a></li>
+        <li class="has-drop">
+          <a href="#">More <span class="caret">▾</span></a>
+          <ul class="dropdown">
+            <li><a href="../entrepreneurship.html">Entrepreneurship</a></li>
+            <li><a href="../collaborations.html">Collaborations</a></li>
+            <li><a href="../resources.html">Resources</a></li>
+            <li><a href="../notebooks.html">Notebooks</a></li>
+            <div class="dropdown-divider"></div>
+            <li class="dropdown-section">Awards</li>
+            <li><a href="../award/inspiration.html">Inspiration</a></li>
+            <li><a href="../award/implementation.html">Implementation</a></li>
+            <li><a href="../award/inclusivity.html">Inclusivity</a></li>
+            <li><a href="../award/sustainability.html">Sustainability</a></li>
+            <li><a href="../award/hardware.html">Hardware</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="description.html">Project</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>Results</span>
+      </div>
+      <h1 class="page-title">Results</h1>
+      <p class="page-subtitle">Key experimental outcomes: transformation, protein expression, purification yield, and antimicrobial activity.</p>
+    </div>
+  </section>
+
+  <div class="content-wrap">
+    <main class="prose">
+
+      <h2 id="transformation">Transformation Efficiency</h2>
+      <p>
+        [Describe Agrobacterium-mediated transformation results: number of explants cocultivated,
+        selection rate on hygromycin plates, confirmed stable integrants by PCR/Southern blot.
+        Include table of transformation events per construct version.]
+      </p>
+      <div class="figure">
+        <div class="figure-placeholder">[Figure: Hygromycin-selected duckweed fronds vs. untransformed controls. PCR bands confirming T-DNA insertion. To be added.]</div>
+        <p class="figure-caption">Fig. 1 — Hygromycin selection and genomic PCR confirmation of stable transformants.</p>
+      </div>
+
+      <h2 id="expression">Protein Expression</h2>
+      <p>
+        [Describe Western blot results using anti-oleosin antibody. Expected band size for
+        oleosin-Melectin fusion (~Xkda). Quantification of band intensity vs. loading control.
+        Compare expression levels across promoter variants tested.]
+      </p>
+      <div class="figure">
+        <div class="figure-placeholder">[Figure: Western blot — anti-oleosin. Lane 1: ladder. Lane 2: WT duckweed. Lane 3: T1 line A. Lane 4: T1 line B. To be added.]</div>
+        <p class="figure-caption">Fig. 2 — Western blot confirming oleosin-Melectin fusion expression.</p>
+      </div>
+
+      <h2 id="purification">Oil-Body Purification</h2>
+      <p>
+        [Describe oil-body isolation protocol results: yield of oil-body fraction per gram fresh
+        weight, purity (% of total protein as fusion protein by Coomassie gel densitometry),
+        TEV cleavage efficiency (% of fusion cleaved), and final Melectin yield per gram plant mass.]
+      </p>
+
+      <div class="stats-row">
+        <div class="stat-card"><div class="stat-number">[X]%</div><div class="stat-label">Oil-body purity</div></div>
+        <div class="stat-card"><div class="stat-number">[X]%</div><div class="stat-label">TEV cleavage efficiency</div></div>
+        <div class="stat-card"><div class="stat-number">[X] µg/g</div><div class="stat-label">Melectin yield / g FW</div></div>
+      </div>
+
+      <h2 id="antimicrobial">Antimicrobial Activity</h2>
+      <p>
+        [Describe MIC assays against target organisms. Suggested panel: <em>E. coli</em> K12
+        (Gram-neg model), <em>S. aureus</em> (Gram-pos model), and if BSL-2 cleared,
+        <em>B. burgdorferi</em> surrogate. Report MIC values in µg/mL and compare to literature
+        values for synthetic Melectin.]
+      </p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Organism</th><th>MIC (plant-derived Melectin)</th><th>MIC (synthetic, literature)</th><th>Notes</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><em>E. coli</em> K12</td><td>[X µg/mL]</td><td>[Lit. value]</td><td></td></tr>
+            <tr><td><em>S. aureus</em> ATCC 29213</td><td>[X µg/mL]</td><td>[Lit. value]</td><td></td></tr>
+            <tr><td><em>B. subtilis</em></td><td>[X µg/mL]</td><td>[Lit. value]</td><td>Gram-pos model</td></tr>
+            <tr><td>Human RBCs (HC₅₀)</td><td>[X µg/mL]</td><td>[Lit. value]</td><td>Hemolysis control</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="summary">Summary & Conclusions</h2>
+      <p>
+        [Summarize what was achieved, what the limiting steps were, and what would be
+        the logical next experiments for a follow-on project or continued development.]
+      </p>
+
+      <div class="callout callout-success">
+        <span class="callout-icon">✓</span>
+        <div class="callout-body">
+          <p>[State primary achievement — e.g., "We demonstrated stable expression of the
+          oleosin-Melectin fusion in transgenic <em>Lemna minor</em> and successful oil-body
+          purification with X% yield, producing bioactive Melectin with an MIC of X µg/mL."]</p>
+        </div>
+      </div>
+
+    </main>
+
+    <aside class="sidebar">
+      <nav class="toc">
+        <p class="toc-title">On this page</p>
+        <ul>
+          <li><a href="#transformation">Transformation</a></li>
+          <li><a href="#expression">Protein Expression</a></li>
+          <li><a href="#purification">Purification</a></li>
+          <li><a href="#antimicrobial">Antimicrobial Activity</a></li>
+          <li><a href="#summary">Summary</a></li>
+        </ul>
+      </nav>
+    </aside>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="logo"><span class="logo-team">UCSC</span><span class="logo-igem">iGEM 2026</span></div>
+        <p>University of California, Santa Cruz</p>
+      </div>
+      <div class="footer-links">
+        <a href="../safety.html">Safety</a>
+        <a href="../team/attributions.html">Attributions</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 UCSC iGEM</span>
+      <span>Content under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a></span>
+    </div>
+  </footer>
+
+  <script>
+    function toggleNav() { document.getElementById('main-nav').classList.toggle('open'); }
+    document.querySelectorAll('.has-drop > a').forEach(function(a) {
+      a.addEventListener('click', function(e) {
+        if (window.innerWidth <= 768) { e.preventDefault(); this.parentElement.classList.toggle('open'); }
+      });
+    });
+  </script>
+</body>
+</html>

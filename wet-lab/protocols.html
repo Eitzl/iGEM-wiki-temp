@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Protocols — UCSC iGEM 2026</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../index.html" class="logo">
+        <span class="logo-team">UCSC</span>
+        <span class="logo-igem">iGEM 2026</span>
+      </a>
+      <button class="nav-toggle-btn" aria-label="Toggle navigation" onclick="toggleNav()">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav" id="main-nav">
+        <li class="has-drop">
+          <a href="../project/description.html">Project <span class="caret">▾</span></a>
+          <ul class="dropdown">
+            <li><a href="../project/description.html">Description</a></li>
+            <li><a href="../project/engineering.html">Engineering</a></li>
+            <li><a href="../project/results.html">Results</a></li>
+          </ul>
+        </li>
+        <li class="has-drop">
+          <a href="experiments.html" class="active">Wet Lab <span class="caret">▾</span></a>
+          <ul class="dropdown">
+            <li><a href="experiments.html">Experiments</a></li>
+            <li><a href="parts.html">Parts</a></li>
+            <li><a href="protocols.html">Protocols</a></li>
+            <li><a href="data-logs.html">Data Logs</a></li>
+          </ul>
+        </li>
+        <li class="has-drop">
+          <a href="../human-practices/integrated-hp.html">Human Practices <span class="caret">▾</span></a>
+          <ul class="dropdown">
+            <li><a href="../human-practices/integrated-hp.html">Integrated HP</a></li>
+            <li><a href="../human-practices/education.html">Education</a></li>
+          </ul>
+        </li>
+        <li class="has-drop">
+          <a href="../team/members.html">Team <span class="caret">▾</span></a>
+          <ul class="dropdown">
+            <li><a href="../team/members.html">Members</a></li>
+            <li><a href="../team/attributions.html">Attributions</a></li>
+          </ul>
+        </li>
+        <li><a href="../modeling/dry-lab.html">Modeling</a></li>
+        <li><a href="../safety.html">Safety</a></li>
+        <li class="has-drop">
+          <a href="#">More <span class="caret">▾</span></a>
+          <ul class="dropdown">
+            <li><a href="../entrepreneurship.html">Entrepreneurship</a></li>
+            <li><a href="../collaborations.html">Collaborations</a></li>
+            <li><a href="../resources.html">Resources</a></li>
+            <li><a href="../notebooks.html">Notebooks</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <span>Protocols</span>
+      </div>
+      <h1 class="page-title">Protocols</h1>
+      <p class="page-subtitle">Step-by-step laboratory protocols for construct assembly, duckweed transformation, oil-body purification, and antimicrobial assays.</p>
+    </div>
+  </section>
+
+  <div class="content-wrap">
+    <main class="prose">
+
+      <h2 id="duckweed-culture">Protocol 1: Duckweed Maintenance Culture</h2>
+      <p><strong>Materials:</strong> Sterilized Hoagland's nutrient solution (half-strength), 16:8 h light:dark cycle, 25°C growth chamber, 500 mL glass dishes.</p>
+      <ol class="protocol-list">
+        <li>Prepare half-strength Hoagland's solution (pH 5.8) in sterile glass bottles. Autoclave 121°C for 20 min.</li>
+        <li>Surface-sterilize duckweed fronds: 70% EtOH 30 s → 10% bleach 2 min → 3× sterile dH₂O wash.</li>
+        <li>Place ~20 fronds in 200 mL Hoagland's in glass dish. Cover with parafilm-pierced lid.</li>
+        <li>Grow at 25°C under 16:8 h light:dark, ~80 µmol/m²/s cool white fluorescent.</li>
+        <li>Subculture 1:5 every 5–7 days by transferring fronds to fresh media.</li>
+      </ol>
+
+      <h2 id="agrobacterium">Protocol 2: Agrobacterium-Mediated Duckweed Transformation</h2>
+      <p><strong>Adapted from:</strong> [Cite source protocol — e.g., Yamamoto et al. or Stomp AM 2005]</p>
+      <ol class="protocol-list">
+        <li>Grow Agrobacterium EHA105 (harboring binary vector) overnight in LB + rifampicin (25 µg/mL) + hygromycin (50 µg/mL) at 28°C, 200 rpm.</li>
+        <li>Pellet cells at 3000 × g, 10 min. Resuspend in MS liquid medium + 200 µM acetosyringone to OD₆₀₀ = 0.5.</li>
+        <li>Surface-sterilize healthy duckweed fronds (see Protocol 1 step 2). Pat dry on sterile filter paper.</li>
+        <li>Immerse fronds in Agrobacterium suspension for 20 min at room temperature with gentle agitation.</li>
+        <li>Blot excess suspension. Transfer fronds to co-cultivation medium (MS + 200 µM acetosyringone, 0.8% agar). Incubate 2 days in dark at 25°C.</li>
+        <li>Transfer fronds to selection medium (MS agar + cefotaxime 500 µg/mL + hygromycin 25 µg/mL). Grow under 16:8 h light:dark.</li>
+        <li>After 3–4 weeks, transfer hygromycin-resistant fronds (bright green, actively growing) to fresh selection medium.</li>
+        <li>Confirm stable integration by genomic PCR using T-DNA-specific primers.</li>
+      </ol>
+
+      <h2 id="oil-body-protocol">Protocol 3: Oil-Body Isolation</h2>
+      <ol class="protocol-list">
+        <li>Harvest 2–5 g fresh weight transgenic duckweed fronds. Flash-freeze in liquid nitrogen.</li>
+        <li>Grind to fine powder in pre-chilled mortar and pestle. Transfer to 50 mL tube.</li>
+        <li>Add 10 mL extraction buffer (50 mM Tris-HCl pH 8.0, 300 mM NaCl, 1 mM EDTA, 1× protease inhibitor cocktail). Vortex vigorously 2 min.</li>
+        <li>Centrifuge at 1000 × g, 4°C, 10 min. Carefully remove floating oil-body layer with wide-bore pipette into a fresh tube.</li>
+        <li>Wash oil bodies: resuspend in 10 mL wash buffer (same as extraction buffer + 0.3% Tween-20). Centrifuge 1000 × g, 10 min. Repeat 2×.</li>
+        <li>Final wash with extraction buffer (no Tween-20).</li>
+        <li>Resuspend oil bodies in 2 mL TEV cleavage buffer (50 mM Tris-HCl pH 8.0, 1 mM DTT, 0.5 mM EDTA).</li>
+        <li>Add TEV protease (1:50 w/w ratio TEV:substrate). Incubate 16 h, 4°C, gentle rotation.</li>
+        <li>Centrifuge 1000 × g, 10 min. Collect aqueous phase containing released Melectin.</li>
+        <li>Quantify by BCA protein assay. Confirm by anti-Melectin Western blot or LC-MS/MS.</li>
+      </ol>
+
+      <h2 id="mic-protocol">Protocol 4: Minimum Inhibitory Concentration (MIC) Assay</h2>
+      <p><strong>Standard:</strong> CLSI M07-Ed11 broth microdilution.</p>
+      <ol class="protocol-list">
+        <li>Prepare 2-fold serial dilutions of Melectin in 96-well plate (columns 1–10): range 0.5–256 µg/mL in CAMHB (cation-adjusted Mueller-Hinton broth).</li>
+        <li>Column 11: growth control (broth + bacteria, no peptide). Column 12: sterility control (broth only).</li>
+        <li>Inoculate each well with test organism at 5 × 10⁵ CFU/mL final concentration.</li>
+        <li>Incubate 16–20 h at 37°C (bacteria) or 30°C (if using non-standard organisms).</li>
+        <li>Read OD₆₀₀ on plate reader. Add resazurin (10 µL of 0.015% solution) to each well; incubate 2 h. Read fluorescence (excitation 560 nm / emission 590 nm) to confirm MIC visually.</li>
+        <li>MIC = lowest concentration with no visible growth / no color change.</li>
+      </ol>
+
+      <h2 id="hemolysis">Protocol 5: Hemolysis Assay</h2>
+      <ol class="protocol-list">
+        <li>Collect fresh sheep or human erythrocytes (ethics-approved). Wash 3× in PBS at 500 × g, 5 min.</li>
+        <li>Prepare 2% RBC suspension in PBS.</li>
+        <li>Set up 2-fold serial dilutions of Melectin (0.5–256 µg/mL) in PBS in 96-well plate.</li>
+        <li>Add equal volume 2% RBC suspension to each well. Mix gently.</li>
+        <li>Incubate 1 h at 37°C without shaking.</li>
+        <li>Centrifuge 500 × g, 5 min. Transfer 100 µL supernatant to fresh plate.</li>
+        <li>Read OD₄₁₅ (hemoglobin absorbance). 100% hemolysis control: 1% Triton X-100. 0% control: PBS only.</li>
+        <li>HC₅₀ = concentration causing 50% hemolysis. Calculate % hemolysis = (OD sample − OD₀%) / (OD₁₀₀% − OD₀%) × 100.</li>
+      </ol>
+
+    </main>
+
+    <aside class="sidebar">
+      <nav class="toc">
+        <p class="toc-title">Protocols</p>
+        <ul>
+          <li><a href="#duckweed-culture">1. Duckweed Culture</a></li>
+          <li><a href="#agrobacterium">2. Agrobacterium Transformation</a></li>
+          <li><a href="#oil-body-protocol">3. Oil-Body Isolation</a></li>
+          <li><a href="#mic-protocol">4. MIC Assay</a></li>
+          <li><a href="#hemolysis">5. Hemolysis Assay</a></li>
+        </ul>
+      </nav>
+    </aside>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="logo"><span class="logo-team">UCSC</span><span class="logo-igem">iGEM 2026</span></div>
+        <p>University of California, Santa Cruz</p>
+      </div>
+      <div class="footer-links">
+        <a href="../safety.html">Safety</a>
+        <a href="../team/attributions.html">Attributions</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 UCSC iGEM</span>
+      <span>Content under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a></span>
+    </div>
+  </footer>
+
+  <script>
+    function toggleNav() { document.getElementById('main-nav').classList.toggle('open'); }
+    document.querySelectorAll('.has-drop > a').forEach(function(a) {
+      a.addEventListener('click', function(e) {
+        if (window.innerWidth <= 768) { e.preventDefault(); this.parentElement.classList.toggle('open'); }
+      });
+    });
+  </script>
+</body>
+</html>
