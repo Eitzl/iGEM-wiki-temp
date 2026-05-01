@@ -1,0 +1,57 @@
+---
+---
+<nav>
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/team">Team</a></li>
+    <li class="dropdown">
+      <a href="/project">Project</a>
+      <ul class="dropdown-menu">
+        <li><a href="/project/wet-lab">Wet Lab</a></li>
+        <li><a href="/project/dry-lab">Dry Lab</a></li>
+        <li><a href="/project/human-practices">Human Practices</a></li>
+        <li><a href="/project/entrepreneurship">Entrepreneurship</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+<style>
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1rem;
+  }
+
+  nav ul li {
+    position: relative;
+  }
+
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    flex-direction: column;
+    gap: 0;
+    background: white;
+    border: 1px solid #ccc;
+    min-width: 160px;
+    z-index: 10;
+  }
+
+  .dropdown:hover .dropdown-menu {
+    display: flex;
+  }
+
+  .dropdown-menu li {
+    width: 100%;
+  }
+
+  .dropdown-menu a {
+    display: block;
+    padding: 0.5rem 1rem;
+  }
+</style>
