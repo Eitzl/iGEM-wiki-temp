@@ -1,6 +1,329 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+
+const captains = [
+  { name: 'Emma Arbil', email: 'earbil@ucsc.edu' },
+  { name: 'Lynn Fonseca-Batalla', email: null },
+];
+
+const members = [
+  { name: 'Aidan Loehde-Woolard', email: 'aloehdew@ucsc.edu' },
+  { name: 'Piet Rottinghuis', email: null },
+  { name: 'Liza Orekhova', email: 'eorekhov@ucsc.edu' },
+  { name: 'Anavi Deshmukh', email: 'adeshmu3@ucsc.edu' },
+  { name: 'Catherine Gholamipour', email: null },
+  { name: 'Oktawian Kadluczka', email: null },
+  { name: 'Niko Chemers', email: null },
+  { name: 'Lulu McClellan', email: 'lfmcclel@ucsc.edu' },
+  { name: 'Eric Fadeyev', email: 'efadeyev@ucsc.edu' },
+  { name: 'Mia Trinh', email: 'mtrinh3@ucsc.edu' },
+  { name: 'Jacob Goldstein', email: 'jamgolds@ucsc.edu' },
+  { name: 'Hana Daron', email: null },
+  { name: 'Ritika Samant', email: null },
+  { name: 'Delaney Boman', email: 'dlboman@ucsc.edu' },
+  { name: 'Pramod Shastry', email: 'pshastry@ucsc.edu' },
+  { name: 'Evan Fitzhugh', email: 'emfitzhu@ucsc.edu' },
+];
+
+const interns = [
+  { name: 'Elizabeth Ruiz', email: null },
+  { name: 'Zaara Abbas', email: null },
+];
+
+const advisors = [
+  { name: 'Dr. David Bernick', title: 'Principal Investigator', dept: 'Biomolecular Engineering & Bioinformatics, UC Santa Cruz' },
+];
 ---
-<BaseLayout title="Team">
-  <!-- Team page content goes here -->
+<BaseLayout title="Team" description="Meet the UCSC iGEM 2026 team.">
+
+  <PageHeader
+    title="Meet the Team"
+    subtitle="20 undergraduate researchers from UC Santa Cruz's Biomolecular Engineering & Bioinformatics department, working together to advance AMP-based therapeutics."
+  />
+
+  <!-- ── TEAM INTRO ─────────────────────────────────────────── -->
+  <section class="section">
+    <div class="container">
+      <p class="section-body" style="max-width: 720px;">
+        The 2026 UC Santa Cruz iGEM team is a collaborative group of undergraduate students
+        in the Biomolecular Engineering &amp; Bioinformatics (BMEB) department. We are united
+        by the goal of applying science and engineering to serve underserved communities —
+        working to develop more accessible treatments for Lyme disease through novel
+        AMP synthesis strategies.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── CAPTAINS ───────────────────────────────────────────── -->
+  <section class="section" style="padding-top: 0;">
+    <div class="container">
+      <p class="section-label">Leadership</p>
+      <h2 class="section-title">Team Captains</h2>
+      <div class="captains-grid">
+        {captains.map(person => (
+          <div class="captain-card">
+            <div class="captain-photo"></div>
+            <div class="captain-info">
+              <h3 class="captain-name">{person.name}</h3>
+              <p class="captain-role">Team Captain</p>
+              {person.email && (
+                <a href={`mailto:${person.email}`} class="member-email">{person.email}</a>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ── STUDENT MEMBERS ────────────────────────────────────── -->
+  <section class="section members-section">
+    <div class="container">
+      <p class="section-label">The researchers</p>
+      <h2 class="section-title">Student Members</h2>
+      <div class="members-grid">
+        {members.map(person => (
+          <div class="member-card">
+            <div class="member-photo"></div>
+            <div class="member-info">
+              <h4 class="member-name">{person.name}</h4>
+              <p class="member-role">Team Member</p>
+              {person.email && (
+                <a href={`mailto:${person.email}`} class="member-email">{person.email}</a>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ── INTERNS ────────────────────────────────────────────── -->
+  <section class="section" style="padding-top: 0;">
+    <div class="container">
+      <p class="section-label">Also on the team</p>
+      <h2 class="section-title">Interns</h2>
+      <div class="interns-grid">
+        {interns.map(person => (
+          <div class="intern-card">
+            <div class="intern-photo"></div>
+            <div>
+              <h4 class="member-name">{person.name}</h4>
+              <p class="member-role">Intern</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ADVISORS ───────────────────────────────────────────── -->
+  <section class="section advisors">
+    <div class="container">
+      <p class="section-label">Guidance</p>
+      <h2 class="section-title">Faculty Advisor</h2>
+      <div class="advisors-grid">
+        {advisors.map(person => (
+          <div class="advisor-card">
+            <div class="advisor-photo"></div>
+            <div>
+              <h4 class="advisor-name">{person.name}</h4>
+              <p class="advisor-title">{person.title}</p>
+              <p class="advisor-dept">{person.dept}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
 </BaseLayout>
+
+<style>
+  /* ── Captains ── */
+  .captains-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .captain-card {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    background: white;
+    border: 1px solid var(--border);
+    border-top: 4px solid var(--gold);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .captain-photo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--blue-light), var(--blue));
+    flex-shrink: 0;
+    border: 3px solid var(--gold);
+  }
+
+  .captain-name {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.25rem;
+  }
+
+  .captain-role {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--blue);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.5rem;
+  }
+
+  /* ── Members ── */
+  .members-section { background: var(--blue-faint); }
+
+  .members-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1.25rem;
+    margin-top: 2rem;
+  }
+
+  .member-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+
+  .member-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-3px);
+  }
+
+  .member-photo {
+    width: 100%;
+    aspect-ratio: 1;
+    background: linear-gradient(135deg, var(--blue-light), var(--blue-faint));
+    border-bottom: 3px solid var(--gold);
+  }
+
+  .member-info { padding: 0.9rem 1rem; }
+
+  .member-name {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.2rem;
+  }
+
+  .member-role {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-bottom: 0.4rem;
+  }
+
+  .member-email {
+    font-size: 0.72rem;
+    color: var(--blue);
+    word-break: break-all;
+  }
+
+  .member-email:hover { color: var(--blue-dark); }
+
+  /* ── Interns ── */
+  .interns-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .intern-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.25rem;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .intern-photo {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--blue-light), var(--blue-faint));
+    flex-shrink: 0;
+    border: 2px solid var(--border);
+  }
+
+  /* ── Advisors ── */
+  .advisors { background: #0a2a3d; }
+
+  .advisors .section-label { color: rgba(255, 181, 17, 0.85); }
+  .advisors .section-title { color: white; }
+
+  .advisors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .advisor-card {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+  }
+
+  .advisor-photo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #1295D8, #0a2a3d);
+    flex-shrink: 0;
+    border: 3px solid var(--gold);
+  }
+
+  .advisor-name {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.2rem;
+  }
+
+  .advisor-title {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.3rem;
+  }
+
+  .advisor-dept {
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.5;
+  }
+
+  @media (max-width: 640px) {
+    .captains-grid,
+    .advisors-grid { grid-template-columns: 1fr; }
+  }
+</style>

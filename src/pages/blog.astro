@@ -1,0 +1,263 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+
+const posts = [
+  {
+    date: '2026-05-08',
+    tag: 'Project Update',
+    title: 'We\'re in the design phase!',
+    body: `The UCSC iGEM 2026 team has officially kicked off the project season. We're currently
+    in the design and planning phase — finalizing our computational pipeline for melectin
+    sequence analysis, scoping our wet lab synthesis workflow, and setting up our human
+    practices outreach plan. Stay tuned for updates as we move into the build phase.`,
+  },
+  {
+    date: '2026-04-15',
+    tag: 'Team',
+    title: 'Team formation complete',
+    body: `We've assembled a 20-member team of undergraduate researchers from the Biomolecular
+    Engineering & Bioinformatics department at UC Santa Cruz. Two team captains have been
+    selected and we've divided into wet lab, dry lab, human practices, and entrepreneurship
+    sub-teams. Dr. David Bernick will be serving as our Principal Investigator.`,
+  },
+  {
+    date: '2026-03-01',
+    tag: 'Background',
+    title: 'Project topic selected: melectin-based AMPs for Lyme disease',
+    body: `After reviewing the scientific literature and consulting with stakeholders, the team
+    selected melectin — an antimicrobial peptide from bee venom — as our primary candidate
+    for treating Borrelia burgdorferi, the causative agent of Lyme disease. Our focus will
+    be on developing scalable synthesis methods that bypass the need for direct bee venom
+    extraction, and computational models to guide AMP optimization.`,
+  },
+];
+
+function formatDate(iso: string): string {
+  const d = new Date(iso + 'T00:00:00');
+  return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+}
+---
+<BaseLayout title="Blog" description="Project updates and news from the UCSC iGEM 2026 team.">
+
+  <PageHeader
+    title="Project Updates"
+    subtitle="Follow our progress as we design, build, and test our melectin-based AMP platform."
+  />
+
+  <section class="section">
+    <div class="container">
+      <div class="blog-layout">
+
+        <!-- Posts -->
+        <div class="posts">
+          {posts.map(post => (
+            <article class="post-card">
+              <div class="post-meta">
+                <span class="post-tag">{post.tag}</span>
+                <time datetime={post.date}>{formatDate(post.date)}</time>
+              </div>
+              <h2 class="post-title">{post.title}</h2>
+              <p class="post-body">{post.body}</p>
+            </article>
+          ))}
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+          <div class="sidebar-card">
+            <h3>Current Status</h3>
+            <div class="status-row">
+              <span class="status-dot active"></span>
+              <span>Design &amp; planning</span>
+            </div>
+            <div class="status-row">
+              <span class="status-dot future"></span>
+              <span>Build phase</span>
+            </div>
+            <div class="status-row">
+              <span class="status-dot future"></span>
+              <span>Test &amp; characterization</span>
+            </div>
+            <div class="status-row">
+              <span class="status-dot future"></span>
+              <span>iGEM Jamboree</span>
+            </div>
+          </div>
+          <div class="sidebar-card">
+            <h3>Quick Links</h3>
+            <ul class="quick-links">
+              <li><a href="/project">Project Overview</a></li>
+              <li><a href="/project/wet-lab">Wet Lab</a></li>
+              <li><a href="/project/dry-lab">Dry Lab</a></li>
+              <li><a href="/team">Meet the Team</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-card igem-note">
+            <p>We compete as part of the <a href="https://igem.org" target="_blank" rel="noopener"><strong>iGEM Foundation</strong></a>'s annual synthetic biology competition.</p>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .blog-layout {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  /* ── Posts ── */
+  .posts {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .post-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow 0.2s;
+  }
+
+  .post-card:hover { box-shadow: var(--shadow-md); }
+
+  .post-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .post-tag {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: var(--blue-light);
+    color: var(--blue);
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+  }
+
+  .post-meta time {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+  }
+
+  .post-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.9rem;
+    line-height: 1.3;
+  }
+
+  .post-body {
+    font-size: 0.93rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+  }
+
+  /* ── Sidebar ── */
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    position: sticky;
+    top: calc(var(--nav-height) + 1.5rem);
+  }
+
+  .sidebar-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .sidebar-card h3 {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+  }
+
+  .status-row {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.875rem;
+    color: var(--text);
+    margin-bottom: 0.6rem;
+  }
+
+  .status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .status-dot.active {
+    background: #22c55e;
+    animation: pulse 2s infinite;
+  }
+
+  .status-dot.future {
+    background: var(--border);
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  .quick-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .quick-links a {
+    font-size: 0.875rem;
+    color: var(--blue);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .quick-links a::before {
+    content: '→';
+    font-size: 0.75rem;
+  }
+
+  .quick-links a:hover { color: var(--blue-dark); }
+
+  .igem-note {
+    background: var(--blue-faint);
+    border-color: var(--blue-light);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  .igem-note a { color: var(--blue); }
+
+  @media (max-width: 768px) {
+    .blog-layout { grid-template-columns: 1fr; }
+    .sidebar { position: static; }
+  }
+</style>

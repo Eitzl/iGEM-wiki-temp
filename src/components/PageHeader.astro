@@ -1,0 +1,124 @@
+---
+interface Crumb {
+  label: string;
+  href: string;
+}
+
+interface Props {
+  title: string;
+  subtitle?: string;
+  breadcrumb?: Crumb[];
+}
+
+const { title, subtitle, breadcrumb } = Astro.props;
+---
+<div class="page-header">
+  <div class="container">
+    {breadcrumb && breadcrumb.length > 0 && (
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        {breadcrumb.map(crumb => (
+          <>
+            <span class="sep" aria-hidden="true">›</span>
+            <a href={crumb.href}>{crumb.label}</a>
+          </>
+        ))}
+        <span class="sep" aria-hidden="true">›</span>
+        <span class="current">{title}</span>
+      </nav>
+    )}
+    <h1>{title}</h1>
+    {subtitle && <p class="subtitle">{subtitle}</p>}
+  </div>
+  <div class="wave" aria-hidden="true">
+    <svg viewBox="0 0 1440 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,28 C360,56 1080,0 1440,28 L1440,56 L0,56 Z" fill="white" />
+    </svg>
+  </div>
+</div>
+
+<style>
+  .page-header {
+    background: linear-gradient(135deg, #0a2a3d 0%, #1295D8 100%);
+    padding: 3.5rem 0 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Subtle decorative circle */
+  .page-header::before {
+    content: '';
+    position: absolute;
+    top: -80px;
+    right: -80px;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    background: rgba(255, 181, 17, 0.06);
+    pointer-events: none;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem 3rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin-bottom: 1.25rem;
+    font-size: 0.82rem;
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.65);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .breadcrumb a:hover { color: #FFB511; }
+  .sep { color: rgba(255, 255, 255, 0.3); }
+  .current { color: rgba(255, 255, 255, 0.85); }
+
+  h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    color: white;
+    line-height: 1.15;
+    margin-bottom: 0.5rem;
+  }
+
+  h1::after {
+    content: '';
+    display: block;
+    width: 2.75rem;
+    height: 4px;
+    background: #FFB511;
+    border-radius: 2px;
+    margin-top: 0.85rem;
+  }
+
+  .subtitle {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 1.05rem;
+    max-width: 580px;
+    line-height: 1.65;
+    margin-top: 0.75rem;
+  }
+
+  .wave {
+    display: block;
+    line-height: 0;
+  }
+
+  .wave svg {
+    width: 100%;
+    height: 56px;
+    display: block;
+  }
+</style>

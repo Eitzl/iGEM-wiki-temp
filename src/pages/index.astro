@@ -2,5 +2,387 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 <BaseLayout title="Home">
-  <!-- Home page content goes here -->
+
+  <!-- ── HERO ───────────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="hero-content">
+      <p class="hero-label">UCSC iGEM 2026 · University of California, Santa Cruz</p>
+      <h1>
+        <span class="gold">AMPs:</span> the future<br />of antibiotics.
+      </h1>
+      <p class="hero-sub">
+        Engineering bee-venom antimicrobial peptides to fight Lyme disease —
+        a UCSC synthetic biology team tackling one of the most underserved
+        infectious diseases in North America.
+      </p>
+      <div class="hero-ctas">
+        <a href="/project" class="btn btn-primary">Explore our project</a>
+        <a href="/team" class="btn btn-outline-white">Meet the team</a>
+      </div>
+    </div>
+    <div class="hero-wave" aria-hidden="true">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="white" />
+      </svg>
+    </div>
+  </section>
+
+  <!-- ── ABOUT ──────────────────────────────────────────────── -->
+  <section class="section about">
+    <div class="container">
+      <div class="about-header">
+        <p class="section-label">The problem</p>
+        <h2 class="section-title">Why antimicrobial peptides?</h2>
+      </div>
+      <div class="about-body">
+        <div class="about-text">
+          <p class="section-body" style="margin-bottom: 1.25rem;">
+            Antimicrobial peptides represent a promising alternative to traditional antibiotics —
+            and we need them urgently. As bacteria develop resistance to conventional drugs,
+            AMPs offer a different mechanism: they typically disrupt bacterial membranes in ways
+            that are harder for pathogens to evolve around.
+          </p>
+          <p class="section-body" style="margin-bottom: 1.25rem;">
+            Our project was inspired by reports of Lyme disease patients self-administering
+            bee stings to relieve symptoms. Scientific literature has identified <em>melectin</em>,
+            an antimicrobial peptide found in bee venom, as a promising agent against
+            <em>Borrelia burgdorferi</em>, the bacterium responsible for Lyme disease.
+          </p>
+          <p class="section-body">
+            Extracting melectin directly from bee venom is expensive, labor-intensive, and
+            harmful to bee populations. We're developing scalable synthesis and purification
+            workflows — combined with computational models that predict AMP behavior from
+            protein sequence data — to make these treatments more accessible.
+          </p>
+        </div>
+        <div class="stat-cards">
+          <div class="stat-card">
+            <span class="stat-number">470,000</span>
+            <p>estimated Lyme disease cases annually in the United States</p>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">10–20%</span>
+            <p>of treated patients develop Post-Treatment Lyme Disease Syndrome (PTLDS)</p>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">20</span>
+            <p>undergraduate researchers collaborating across wet lab, dry lab, and human practices</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PROJECT AREAS ──────────────────────────────────────── -->
+  <section class="section project-areas">
+    <div class="container">
+      <div class="project-areas-header">
+        <p class="section-label">Our work</p>
+        <h2 class="section-title">Explore the project</h2>
+        <p class="section-body">
+          Our project spans experimental biology, computational modeling, stakeholder engagement,
+          and commercialization strategy.
+        </p>
+      </div>
+      <div class="cards-grid">
+        <a href="/project/wet-lab" class="project-card">
+          <div class="card-icon">🧪</div>
+          <h3>Wet Lab</h3>
+          <p>Synthesis and purification workflows for bee-venom AMPs, moving beyond direct extraction.</p>
+          <span class="card-link">Read more →</span>
+        </a>
+        <a href="/project/dry-lab" class="project-card">
+          <div class="card-icon">💻</div>
+          <h3>Dry Lab</h3>
+          <p>Computational models predicting AMP behavior and activity directly from protein sequence.</p>
+          <span class="card-link">Read more →</span>
+        </a>
+        <a href="/project/human-practices" class="project-card">
+          <div class="card-icon">🌍</div>
+          <h3>Human Practices</h3>
+          <p>Community outreach, expert consultations, and responsible innovation with underserved communities.</p>
+          <span class="card-link">Read more →</span>
+        </a>
+        <a href="/project/entrepreneurship" class="project-card">
+          <div class="card-icon">🚀</div>
+          <h3>Entrepreneurship</h3>
+          <p>Business model, market analysis, and commercialization pathway for affordable AMP therapeutics.</p>
+          <span class="card-link">Read more →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TEAM TEASER ────────────────────────────────────────── -->
+  <section class="section team-teaser">
+    <div class="container">
+      <div class="teaser-inner">
+        <div>
+          <p class="section-label" style="color: rgba(255,181,17,0.85);">The people</p>
+          <h2 class="section-title" style="color: white;">A team built for this challenge</h2>
+          <p class="section-body" style="color: rgba(255,255,255,0.7); max-width: 480px;">
+            We are 20 undergraduate researchers from UC Santa Cruz's Biomolecular Engineering &
+            Bioinformatics department, united by a passion for applying science to serve
+            underserved communities.
+          </p>
+          <a href="/team" class="btn btn-primary" style="margin-top: 2rem; display: inline-block;">Meet the team</a>
+        </div>
+        <div class="team-placeholder-grid">
+          {Array.from({ length: 4 }).map(() => (
+            <div class="team-avatar-placeholder"></div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SUPPORT ────────────────────────────────────────────── -->
+  <section class="section support">
+    <div class="container support-inner">
+      <div>
+        <p class="section-label">Support our work</p>
+        <h2 class="section-title">Help us make it happen</h2>
+        <p class="section-body">
+          As a student-led research team, we rely entirely on external sponsorships and donations.
+          All team members are unpaid — contributions directly fund laboratory supplies,
+          computational infrastructure, student training, and participation in the international
+          iGEM program.
+        </p>
+      </div>
+      <div class="support-ctas">
+        <a href="https://igem.org" target="_blank" rel="noopener" class="btn btn-blue">
+          Learn about iGEM
+        </a>
+      </div>
+    </div>
+  </section>
+
 </BaseLayout>
+
+<style>
+  /* ── Hero ── */
+  .hero {
+    background: linear-gradient(160deg, #0a2a3d 0%, #1295D8 100%);
+    padding: 7rem 2rem 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -120px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 700px;
+    height: 700px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,181,17,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 820px;
+    margin: 0 auto;
+    padding-bottom: 5rem;
+  }
+
+  .hero-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255, 181, 17, 0.85);
+    margin-bottom: 1.25rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 700;
+    color: white;
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+    margin-bottom: 1.5rem;
+  }
+
+  .gold { color: #FFB511; }
+
+  .hero-sub {
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    color: rgba(255, 255, 255, 0.75);
+    max-width: 580px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.7;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .hero-wave {
+    line-height: 0;
+    margin-top: 2rem;
+  }
+
+  .hero-wave svg {
+    width: 100%;
+    height: 80px;
+    display: block;
+  }
+
+  /* ── About ── */
+  .about { background: white; }
+
+  .about-header { margin-bottom: 3rem; }
+
+  .about-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .stat-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .stat-card {
+    border-left: 4px solid #FFB511;
+    padding: 1.25rem 1.5rem;
+    background: var(--blue-faint);
+    border-radius: 0 var(--radius) var(--radius) 0;
+  }
+
+  .stat-number {
+    display: block;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--blue);
+    line-height: 1.1;
+    margin-bottom: 0.3rem;
+  }
+
+  .stat-card p {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  /* ── Project areas ── */
+  .project-areas { background: var(--blue-faint); }
+
+  .project-areas-header { margin-bottom: 3rem; }
+
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .project-card {
+    background: white;
+    border-radius: var(--radius-lg);
+    padding: 2rem 1.75rem;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border);
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  .project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    color: var(--text);
+  }
+
+  .card-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+
+  .project-card h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  .project-card p {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    flex: 1;
+  }
+
+  .card-link {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--blue);
+    margin-top: 0.5rem;
+  }
+
+  .project-card:hover .card-link { color: var(--blue-dark); }
+
+  /* ── Team teaser ── */
+  .team-teaser {
+    background: linear-gradient(135deg, #0a2a3d 0%, #1295D8 100%);
+  }
+
+  .teaser-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .team-placeholder-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .team-avatar-placeholder {
+    aspect-ratio: 1;
+    border-radius: var(--radius-lg);
+    background: rgba(255, 255, 255, 0.08);
+    border: 2px dashed rgba(255, 255, 255, 0.2);
+  }
+
+  /* ── Support ── */
+  .support { background: white; border-top: 1px solid var(--border); }
+
+  .support-inner {
+    display: flex;
+    gap: 4rem;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .support-ctas {
+    flex-shrink: 0;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 768px) {
+    .about-body,
+    .teaser-inner {
+      grid-template-columns: 1fr;
+    }
+
+    .team-placeholder-grid { display: none; }
+
+    .support-inner { flex-direction: column; gap: 2rem; }
+  }
+</style>

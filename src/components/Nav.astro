@@ -1,57 +1,203 @@
 ---
 ---
-<nav>
-  <ul>
-    <li><a href="/">Home</a></li>
-    <li><a href="/team">Team</a></li>
-    <li class="dropdown">
-      <a href="/project">Project</a>
-      <ul class="dropdown-menu">
-        <li><a href="/project/wet-lab">Wet Lab</a></li>
-        <li><a href="/project/dry-lab">Dry Lab</a></li>
-        <li><a href="/project/human-practices">Human Practices</a></li>
-        <li><a href="/project/entrepreneurship">Entrepreneurship</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
+<header>
+  <nav id="main-nav">
+    <button id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span class="toggle-icon">+</span>
+    </button>
+    <ul id="nav-links" class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/team">Team</a></li>
+      <li class="dropdown">
+        <button class="dropdown-toggle">Project <span class="arrow">▾</span></button>
+        <ul class="dropdown-menu">
+          <li><a href="/project">Overview</a></li>
+          <li><a href="/project/wet-lab">Wet Lab</a></li>
+          <li><a href="/project/dry-lab">Dry Lab</a></li>
+          <li><a href="/project/human-practices">Human Practices</a></li>
+          <li><a href="/project/entrepreneurship">Entrepreneurship</a></li>
+        </ul>
+      </li>
+      <li><a href="/blog">Blog</a></li>
+      <li><a href="/attribution">Attribution</a></li>
+    </ul>
+    <a href="/" class="brand">UCSC <span>iGEM</span></a>
+  </nav>
+</header>
 
 <style>
-  nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--nav-height, 60px);
+    background: #1295D8;
+    z-index: 100;
     display: flex;
-    gap: 1rem;
+    align-items: center;
+    box-shadow: 0 2px 12px rgba(10, 42, 61, 0.18);
   }
 
-  nav ul li {
-    position: relative;
+  nav {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
   }
+
+  /* + toggle button */
+  #nav-toggle {
+    background: none;
+    border: 2px solid #FFB511;
+    color: #FFB511;
+    font-size: 1.4rem;
+    width: 2.25rem;
+    height: 2.25rem;
+    cursor: pointer;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    padding: 0;
+    line-height: 1;
+    transition: background 0.2s;
+  }
+
+  #nav-toggle:hover {
+    background: rgba(255, 181, 17, 0.12);
+  }
+
+  .toggle-icon {
+    display: inline-block;
+    transition: transform 0.3s ease;
+  }
+
+  #nav-toggle[aria-expanded="true"] .toggle-icon {
+    transform: rotate(45deg);
+  }
+
+  /* Expanding links */
+  .nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    max-width: 0;
+    opacity: 0;
+    transition: max-width 0.45s ease, opacity 0.3s ease;
+  }
+
+  .nav-links.open {
+    max-width: 900px;
+    opacity: 1;
+  }
+
+  .nav-links > li { white-space: nowrap; }
+
+  .nav-links a,
+  .dropdown-toggle {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    padding: 0.5rem 0.9rem;
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 500;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    transition: color 0.2s;
+    letter-spacing: 0.01em;
+  }
+
+  .nav-links a:hover,
+  .dropdown-toggle:hover {
+    color: #FFB511;
+  }
+
+  /* Brand — pushed to right with margin-left: auto */
+  .brand {
+    margin-left: auto;
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .brand span {
+    color: #FFB511;
+  }
+
+  /* Dropdown */
+  .dropdown { position: relative; }
 
   .dropdown-menu {
     display: none;
     position: absolute;
-    top: 100%;
+    top: calc(100% + 10px);
     left: 0;
-    flex-direction: column;
-    gap: 0;
+    list-style: none;
+    padding: 0.4rem 0;
     background: white;
-    border: 1px solid #ccc;
-    min-width: 160px;
-    z-index: 10;
+    border-top: 3px solid #FFB511;
+    border-radius: 0 0 var(--radius, 8px) var(--radius, 8px);
+    box-shadow: 0 8px 24px rgba(10, 42, 61, 0.14);
+    min-width: 195px;
   }
 
-  .dropdown:hover .dropdown-menu {
-    display: flex;
-  }
-
-  .dropdown-menu li {
-    width: 100%;
-  }
+  .dropdown.open .dropdown-menu { display: block; }
 
   .dropdown-menu a {
+    color: #1295D8;
+    padding: 0.5rem 1.25rem;
+    font-size: 0.875rem;
+    font-weight: 500;
     display: block;
-    padding: 0.5rem 1rem;
+    transition: background 0.15s, color 0.15s;
   }
+
+  .dropdown-menu a:hover {
+    background: #1295D8;
+    color: white;
+  }
+
+  .arrow {
+    font-size: 0.65em;
+    display: inline-block;
+    transition: transform 0.2s;
+    margin-left: 2px;
+  }
+
+  .dropdown.open .arrow { transform: rotate(180deg); }
 </style>
+
+<script>
+  const toggle = document.getElementById('nav-toggle');
+  const navLinks = document.getElementById('nav-links');
+  const dropdownBtn = document.querySelector<HTMLButtonElement>('.dropdown-toggle');
+  const dropdown = document.querySelector('.dropdown');
+
+  toggle?.addEventListener('click', () => {
+    const isOpen = navLinks?.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    if (!isOpen) dropdown?.classList.remove('open');
+  });
+
+  dropdownBtn?.addEventListener('click', () => {
+    dropdown?.classList.toggle('open');
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!dropdown?.contains(e.target as Node)) {
+      dropdown?.classList.remove('open');
+    }
+  });
+</script>

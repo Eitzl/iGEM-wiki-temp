@@ -1,6 +1,259 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+
+const breadcrumb = [{ label: 'Project', href: '/project' }];
 ---
-<BaseLayout title="Entrepreneurship">
-  <!-- Entrepreneurship content goes here -->
+<BaseLayout title="Entrepreneurship" description="Entrepreneurship and commercialization from UCSC iGEM.">
+
+  <PageHeader
+    title="Entrepreneurship"
+    subtitle="Translating our science into a viable, impactful product — from market analysis to a commercialization roadmap."
+    breadcrumb={breadcrumb}
+  />
+
+  <!-- ── OVERVIEW ───────────────────────────────────────────── -->
+  <section class="section">
+    <div class="container">
+      <p class="section-label">The opportunity</p>
+      <h2 class="section-title">Problem & Value Proposition</h2>
+      <div class="two-col">
+        <div>
+          <div class="placeholder" style="min-height: 160px;">
+            Describe the market gap your technology addresses. Who is the customer? What pain do they have? How does your AMP technology solve it better than existing alternatives?
+          </div>
+        </div>
+        <div class="value-prop-card">
+          <h4>Our Value Proposition</h4>
+          <div class="placeholder-sm" style="min-height: 80px; text-align: left;">
+            One concise statement of what you offer, to whom, and why it matters.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── MARKET ─────────────────────────────────────────────── -->
+  <section class="section" style="padding-top: 0; background: var(--blue-faint);">
+    <div class="container">
+      <p class="section-label">Market analysis</p>
+      <h2 class="section-title">Market Landscape</h2>
+      <div class="market-grid">
+        <div class="market-card accent-blue">
+          <h4>Total Addressable Market</h4>
+          <div class="market-stat placeholder-sm">[ $ value ]</div>
+          <div class="placeholder-sm" style="font-size: 0.8rem;">Brief description of the TAM and source.</div>
+        </div>
+        <div class="market-card accent-gold">
+          <h4>Serviceable Market</h4>
+          <div class="market-stat placeholder-sm">[ $ value ]</div>
+          <div class="placeholder-sm" style="font-size: 0.8rem;">Brief description of the SAM and source.</div>
+        </div>
+        <div class="market-card accent-blue">
+          <h4>Target Market</h4>
+          <div class="market-stat placeholder-sm">[ $ value ]</div>
+          <div class="placeholder-sm" style="font-size: 0.8rem;">Your initial beachhead market and entry point.</div>
+        </div>
+      </div>
+      <div class="placeholder" style="min-height: 140px; margin-top: 2rem;">
+        Describe the competitive landscape — existing antibiotics, other AMP companies, and your differentiation.
+      </div>
+    </div>
+  </section>
+
+  <!-- ── BUSINESS MODEL ─────────────────────────────────────── -->
+  <section class="section">
+    <div class="container">
+      <p class="section-label">Strategy</p>
+      <h2 class="section-title">Business Model</h2>
+      <div class="bmc-grid">
+        {[
+          { label: 'Customer Segments', icon: '👥' },
+          { label: 'Value Propositions', icon: '💡' },
+          { label: 'Revenue Streams', icon: '💰' },
+          { label: 'Key Partnerships', icon: '🤝' },
+          { label: 'Channels', icon: '📡' },
+          { label: 'Cost Structure', icon: '📊' },
+        ].map(b => (
+          <div class="bmc-card">
+            <div class="bmc-icon">{b.icon}</div>
+            <h4>{b.label}</h4>
+            <div class="placeholder-sm" style="font-size: 0.8rem;">Add your content here.</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ROADMAP ─────────────────────────────────────────────── -->
+  <section class="section" style="padding-top: 0; background: var(--blue-faint);">
+    <div class="container">
+      <p class="section-label">Path forward</p>
+      <h2 class="section-title">Commercialization Roadmap</h2>
+      <div class="roadmap">
+        {[
+          { phase: 'Phase 1', label: 'Proof of Concept', timeframe: 'Now' },
+          { phase: 'Phase 2', label: 'Pre-clinical Development', timeframe: 'Year 1–2' },
+          { phase: 'Phase 3', label: 'IND Filing & Clinical Trials', timeframe: 'Year 3–6' },
+          { phase: 'Phase 4', label: 'FDA Approval & Launch', timeframe: 'Year 7+' },
+        ].map((r, i) => (
+          <div class="roadmap-step">
+            <div class="roadmap-dot"></div>
+            <div class="roadmap-content">
+              <span class="roadmap-time">{r.timeframe}</span>
+              <h4>{r.phase}: {r.label}</h4>
+              <div class="placeholder-sm" style="font-size: 0.8rem;">Describe key milestones, funding needs, and regulatory steps for this phase.</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
 </BaseLayout>
+
+<style>
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+    margin-top: 1.5rem;
+  }
+
+  .value-prop-card {
+    background: var(--blue);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+    color: white;
+  }
+
+  .value-prop-card h4 {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #FFB511;
+    margin-bottom: 1rem;
+  }
+
+  .market-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    margin-top: 2rem;
+  }
+
+  .market-card {
+    background: white;
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .market-card h4 {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+  }
+
+  .accent-blue h4 { color: var(--blue); }
+  .accent-gold h4 { color: var(--gold-dark); }
+
+  .market-stat {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .bmc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.25rem;
+    margin-top: 2rem;
+  }
+
+  .bmc-card {
+    background: var(--blue-faint);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .bmc-icon { font-size: 1.4rem; }
+
+  .bmc-card h4 {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  /* Roadmap */
+  .roadmap {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: relative;
+    padding-left: 2rem;
+  }
+
+  .roadmap::before {
+    content: '';
+    position: absolute;
+    left: 0.45rem;
+    top: 0.5rem;
+    bottom: 0.5rem;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--blue), var(--gold));
+    border-radius: 1px;
+  }
+
+  .roadmap-step {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    padding-bottom: 2rem;
+    position: relative;
+  }
+
+  .roadmap-dot {
+    position: absolute;
+    left: -2rem;
+    top: 0.3rem;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background: var(--blue);
+    border: 3px solid var(--gold);
+    flex-shrink: 0;
+  }
+
+  .roadmap-time {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  .roadmap-content h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+  }
+
+  @media (max-width: 640px) {
+    .two-col,
+    .market-grid { grid-template-columns: 1fr; }
+  }
+</style>

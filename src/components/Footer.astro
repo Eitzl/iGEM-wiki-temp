@@ -1,0 +1,135 @@
+---
+---
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="brand">UCSC <span class="gold">iGEM</span></span>
+        <p>Advancing synthetic biology at UC Santa Cruz.<br />Competing in the iGEM Foundation's 2026 annual jamboree.</p>
+      </div>
+      <nav class="footer-nav">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/team">Team</a></li>
+          <li><a href="/project">Project</a></li>
+          <li><a href="/blog">Blog</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-nav">
+        <h4>Project</h4>
+        <ul>
+          <li><a href="/project/wet-lab">Wet Lab</a></li>
+          <li><a href="/project/dry-lab">Dry Lab</a></li>
+          <li><a href="/project/human-practices">Human Practices</a></li>
+          <li><a href="/project/entrepreneurship">Entrepreneurship</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-nav">
+        <h4>Info</h4>
+        <ul>
+          <li><a href="/attribution">Attribution</a></li>
+          <li><a href="https://igem.org" target="_blank" rel="noopener">iGEM Foundation ↗</a></li>
+          <li><a href="https://ucsc.edu" target="_blank" rel="noopener">UC Santa Cruz ↗</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 UCSC iGEM. Made for the <a href="https://igem.org" target="_blank" rel="noopener">iGEM Foundation</a>. Built with <a href="https://astro.build" target="_blank" rel="noopener">Astro</a>.</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  footer {
+    background: #0a2a3d;
+    color: #8db4cc;
+    padding: 4rem 0 2rem;
+    margin-top: auto;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .brand {
+    display: block;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.9rem;
+    letter-spacing: 0.02em;
+  }
+
+  .gold { color: #FFB511; }
+
+  .footer-brand p {
+    font-size: 0.88rem;
+    line-height: 1.7;
+    max-width: 240px;
+  }
+
+  .footer-nav h4 {
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 1.1rem;
+  }
+
+  .footer-nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+
+  .footer-nav a {
+    color: #8db4cc;
+    font-size: 0.875rem;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-nav a:hover { color: #FFB511; }
+
+  .footer-bottom {
+    padding-top: 1.75rem;
+    font-size: 0.8rem;
+    color: #4d7a96;
+  }
+
+  .footer-bottom a {
+    color: #6aa0bc;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .footer-bottom a:hover { color: #FFB511; }
+
+  @media (max-width: 900px) {
+    .footer-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+    .footer-brand {
+      grid-column: 1 / -1;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

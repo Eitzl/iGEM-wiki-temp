@@ -1,0 +1,321 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+
+const attributions = [
+  {
+    id: 'igem',
+    name: 'iGEM Foundation',
+    url: 'https://igem.org',
+    category: 'Program',
+    description:
+      'The International Genetically Engineered Machine Foundation runs the annual iGEM competition that provides the framework, community, and platform for this project. Our wiki is built as part of the iGEM 2026 competition.',
+    license: 'Competition framework and wiki hosting provided by the iGEM Foundation.',
+  },
+  {
+    id: 'astro',
+    name: 'Astro',
+    url: 'https://astro.build',
+    category: 'Framework',
+    description:
+      'This website is built with Astro, an open-source web framework designed for content-driven sites. Astro\'s island architecture and zero-JS-by-default approach make it ideal for a fast, accessible wiki.',
+    license: 'MIT License · astro.build/press for brand assets',
+  },
+  {
+    id: 'ucsc',
+    name: 'UC Santa Cruz',
+    url: 'https://ucsc.edu',
+    category: 'Institution',
+    description:
+      'The University of California, Santa Cruz hosts our team through the Biomolecular Engineering & Bioinformatics (BMEB) department. Our research is conducted using UCSC facilities and infrastructure.',
+    license: 'Institutional affiliation · ucsc.edu',
+  },
+  {
+    id: 'fonts',
+    name: 'Google Fonts — Inter',
+    url: 'https://fonts.google.com/specimen/Inter',
+    category: 'Typography',
+    description:
+      'The Inter typeface by Rasmus Andersson is used across this site for its readability and clean design at all sizes.',
+    license: 'SIL Open Font License 1.1',
+  },
+];
+---
+<BaseLayout title="Attribution" description="Credits and attributions for the UCSC iGEM 2026 wiki.">
+
+  <PageHeader
+    title="Attribution"
+    subtitle="This project stands on the shoulders of open-source tools, community resources, and institutional support. We believe in transparent attribution."
+  />
+
+  <section class="section">
+    <div class="container">
+
+      <!-- ── Logos row ───────────────────────────────────────── -->
+      <div class="logos-row">
+        <!-- iGEM -->
+        <a href="https://igem.org" target="_blank" rel="noopener" class="logo-card" aria-label="iGEM Foundation">
+          <div class="logo-wrap igem-logo-wrap">
+            <svg viewBox="0 0 220 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="igem-svg">
+              <text x="8" y="50" font-family="Arial Black, Arial, sans-serif" font-size="58" font-weight="900" fill="#1C69A7">i</text>
+              <text x="42" y="50" font-family="Arial Black, Arial, sans-serif" font-size="58" font-weight="900" fill="#F57E20">G</text>
+              <text x="90" y="50" font-family="Arial Black, Arial, sans-serif" font-size="58" font-weight="900" fill="#1C69A7">E</text>
+              <text x="136" y="50" font-family="Arial Black, Arial, sans-serif" font-size="58" font-weight="900" fill="#F57E20">M</text>
+            </svg>
+          </div>
+          <span class="logo-label">iGEM Foundation</span>
+        </a>
+
+        <!-- Astro -->
+        <a href="https://astro.build" target="_blank" rel="noopener" class="logo-card" aria-label="Astro">
+          <div class="logo-wrap astro-logo-wrap">
+            <img
+              src="https://astro.build/assets/press/astro-logo-dark.svg"
+              alt="Astro"
+              class="astro-logo"
+              width="160"
+              height="56"
+              loading="lazy"
+            />
+          </div>
+          <span class="logo-label">Built with Astro</span>
+        </a>
+
+        <!-- UC Santa Cruz -->
+        <a href="https://ucsc.edu" target="_blank" rel="noopener" class="logo-card" aria-label="UC Santa Cruz">
+          <div class="logo-wrap ucsc-logo-wrap">
+            <svg viewBox="0 0 220 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="ucsc-svg">
+              <text x="8" y="44" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#003C6C">University of</text>
+              <text x="8" y="58" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#003C6C" letter-spacing="0.5">California Santa Cruz</text>
+              <rect x="0" y="0" width="3" height="60" fill="#FDC700" rx="1"/>
+            </svg>
+          </div>
+          <span class="logo-label">UC Santa Cruz</span>
+        </a>
+
+        <!-- Placeholder for future additions -->
+        <div class="logo-card logo-card-placeholder">
+          <div class="logo-wrap placeholder-wrap">
+            <span class="plus-icon">+</span>
+          </div>
+          <span class="logo-label" style="color: var(--text-muted);">More coming soon</span>
+        </div>
+      </div>
+
+      <!-- ── Attribution cards ───────────────────────────────── -->
+      <div class="attr-grid">
+        {attributions.map(item => (
+          <div class="attr-card">
+            <div class="attr-header">
+              <div>
+                <span class="attr-category">{item.category}</span>
+                <h3 class="attr-name">
+                  <a href={item.url} target="_blank" rel="noopener">{item.name} ↗</a>
+                </h3>
+              </div>
+            </div>
+            <p class="attr-desc">{item.description}</p>
+            <div class="attr-license">
+              <span class="license-icon">©</span>
+              {item.license}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- ── General note ───────────────────────────────────── -->
+      <div class="general-note">
+        <h3>General Attribution</h3>
+        <p>
+          All scientific content on this wiki is produced by the UCSC iGEM 2026 team.
+          External sources are cited inline where applicable. Images, figures, and data
+          without explicit attribution are original works of the team unless noted otherwise.
+          For questions about attribution or reuse, contact us via the team page.
+        </p>
+        <p style="margin-top: 0.75rem;">
+          This wiki was built for the <a href="https://igem.org" target="_blank" rel="noopener">iGEM Foundation</a>'s
+          2026 competition. Team: <a href="/team">UCSC iGEM 2026</a>.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  /* ── Logos row ── */
+  .logos-row {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 4rem;
+    justify-content: center;
+  }
+
+  .logo-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 2rem 2.5rem;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.2s, box-shadow 0.2s;
+    min-width: 190px;
+  }
+
+  .logo-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .logo-card-placeholder {
+    cursor: default;
+    border-style: dashed;
+    background: var(--blue-faint);
+  }
+
+  .logo-card-placeholder:hover {
+    transform: none;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .logo-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+  }
+
+  .igem-svg,
+  .ucsc-svg {
+    height: 52px;
+    width: auto;
+  }
+
+  .astro-logo {
+    height: 44px;
+    width: auto;
+    display: block;
+  }
+
+  .placeholder-wrap {
+    width: 80px;
+  }
+
+  .plus-icon {
+    font-size: 2rem;
+    color: var(--border);
+    font-weight: 300;
+  }
+
+  .logo-label {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    letter-spacing: 0.04em;
+    text-align: center;
+  }
+
+  /* ── Attribution cards ── */
+  .attr-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .attr-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+
+  .attr-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .attr-category {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    margin-bottom: 0.3rem;
+  }
+
+  .attr-name {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin: 0;
+  }
+
+  .attr-name a {
+    color: var(--text);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .attr-name a:hover { color: var(--blue); }
+
+  .attr-desc {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    flex: 1;
+  }
+
+  .attr-license {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    background: var(--blue-faint);
+    border-radius: var(--radius);
+    padding: 0.5rem 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .license-icon {
+    font-size: 0.85rem;
+    color: var(--blue);
+    font-weight: 600;
+  }
+
+  /* ── General note ── */
+  .general-note {
+    background: var(--blue-faint);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+  }
+
+  .general-note h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.75rem;
+  }
+
+  .general-note p {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    line-height: 1.75;
+  }
+
+  .general-note a { color: var(--blue); }
+  .general-note a:hover { color: var(--blue-dark); }
+</style>

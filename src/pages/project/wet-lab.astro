@@ -1,6 +1,165 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+
+const breadcrumb = [{ label: 'Project', href: '/project' }];
 ---
-<BaseLayout title="Wet Lab">
-  <!-- Wet Lab content goes here -->
+<BaseLayout title="Wet Lab" description="Wet lab experiments and results from UCSC iGEM.">
+
+  <PageHeader
+    title="Wet Lab"
+    subtitle="Experimental design, molecular cloning, expression systems, and characterization of AMP candidates."
+    breadcrumb={breadcrumb}
+  />
+
+  <!-- ── OVERVIEW ───────────────────────────────────────────── -->
+  <section class="section">
+    <div class="container">
+      <p class="section-label">Introduction</p>
+      <h2 class="section-title">Overview</h2>
+      <div class="placeholder" style="max-width: 800px; min-height: 140px;">
+        Briefly introduce your wet lab work. What were your experimental goals? What biological systems or organisms did you use?
+      </div>
+    </div>
+  </section>
+
+  <!-- ── METHODS ────────────────────────────────────────────── -->
+  <section class="section" style="padding-top: 0; background: var(--blue-faint);">
+    <div class="container">
+      <p class="section-label">Protocols</p>
+      <h2 class="section-title">Methods</h2>
+      <div class="content-sections">
+
+        <div class="content-block">
+          <h3>AMP Design & Selection</h3>
+          <div class="block-body">
+            <div class="placeholder" style="min-height: 120px;">
+              Describe how you selected or designed your AMP sequences. Reference any databases (APD, DRAMP), design criteria, and selection rationale.
+            </div>
+            <div class="figure-box placeholder">[ Figure or sequence alignment ]</div>
+          </div>
+        </div>
+
+        <div class="content-block">
+          <h3>Cloning & Expression</h3>
+          <div class="block-body">
+            <div class="figure-box placeholder">[ Gel image or construct diagram ]</div>
+            <div class="placeholder" style="min-height: 120px;">
+              Describe your cloning strategy, expression host, induction conditions, and any challenges encountered.
+            </div>
+          </div>
+        </div>
+
+        <div class="content-block">
+          <h3>Characterization</h3>
+          <div class="block-body">
+            <div class="placeholder" style="min-height: 120px;">
+              Describe the assays used to test AMP activity — MIC assays, membrane permeability tests, cytotoxicity panels, etc.
+            </div>
+            <div class="figure-box placeholder">[ Results figure or table ]</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── RESULTS ────────────────────────────────────────────── -->
+  <section class="section">
+    <div class="container">
+      <p class="section-label">Findings</p>
+      <h2 class="section-title">Results</h2>
+      <div class="results-grid">
+        <div class="result-card">
+          <h4>Key Result 1</h4>
+          <div class="placeholder" style="min-height: 160px;">Insert figure and description of first major result.</div>
+        </div>
+        <div class="result-card">
+          <h4>Key Result 2</h4>
+          <div class="placeholder" style="min-height: 160px;">Insert figure and description of second major result.</div>
+        </div>
+        <div class="result-card">
+          <h4>Key Result 3</h4>
+          <div class="placeholder" style="min-height: 160px;">Insert figure and description of third major result.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── DISCUSSION ─────────────────────────────────────────── -->
+  <section class="section" style="padding-top: 0;">
+    <div class="container">
+      <p class="section-label">Interpretation</p>
+      <h2 class="section-title">Discussion & Future Directions</h2>
+      <div class="placeholder" style="max-width: 800px; min-height: 140px;">
+        Interpret your results, discuss limitations, and describe what you would do next if given more time.
+      </div>
+    </div>
+  </section>
+
 </BaseLayout>
+
+<style>
+  .content-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    margin-top: 2rem;
+  }
+
+  .content-block h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 1rem;
+    padding-left: 1rem;
+    border-left: 4px solid var(--gold);
+  }
+
+  .block-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    align-items: start;
+  }
+
+  .figure-box {
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+  }
+
+  .results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .result-card {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .result-card h4 {
+    background: var(--blue);
+    color: white;
+    padding: 0.75rem 1.25rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+
+  .result-card .placeholder {
+    border-radius: 0;
+    border: none;
+    border-top: none;
+  }
+
+  @media (max-width: 640px) {
+    .block-body { grid-template-columns: 1fr; }
+  }
+</style>

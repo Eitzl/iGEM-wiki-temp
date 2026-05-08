@@ -1,6 +1,139 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+
+const breadcrumb = [{ label: 'Project', href: '/project' }];
 ---
-<BaseLayout title="Dry Lab">
-  <!-- Dry Lab content goes here -->
+<BaseLayout title="Dry Lab" description="Computational modeling and bioinformatics from UCSC iGEM.">
+
+  <PageHeader
+    title="Dry Lab"
+    subtitle="Computational prediction, structural modeling, and bioinformatics pipelines supporting AMP design and analysis."
+    breadcrumb={breadcrumb}
+  />
+
+  <!-- ── OVERVIEW ───────────────────────────────────────────── -->
+  <section class="section">
+    <div class="container">
+      <p class="section-label">Introduction</p>
+      <h2 class="section-title">Overview</h2>
+      <div class="placeholder" style="max-width: 800px; min-height: 140px;">
+        Describe the computational goals of your project. What tools, languages, or frameworks did you use? How did the dry lab work inform or complement the wet lab?
+      </div>
+    </div>
+  </section>
+
+  <!-- ── MODELS ─────────────────────────────────────────────── -->
+  <section class="section" style="padding-top: 0; background: var(--blue-faint);">
+    <div class="container">
+      <p class="section-label">Computational work</p>
+      <h2 class="section-title">Models & Pipelines</h2>
+      <div class="model-cards">
+
+        <div class="model-card">
+          <div class="model-header">
+            <span class="model-icon">🧬</span>
+            <h3>Sequence Analysis</h3>
+          </div>
+          <div class="placeholder-sm" style="margin-bottom: 1rem;">
+            Describe the bioinformatics pipeline — alignment tools, databases queried, and sequence features analyzed.
+          </div>
+          <div class="placeholder" style="min-height: 140px;">[ Output visualization or table ]</div>
+        </div>
+
+        <div class="model-card">
+          <div class="model-header">
+            <span class="model-icon">🏗️</span>
+            <h3>Structure Prediction</h3>
+          </div>
+          <div class="placeholder-sm" style="margin-bottom: 1rem;">
+            Describe your structural modeling approach — AlphaFold2, RoseTTAFold, MD simulations, etc.
+          </div>
+          <div class="placeholder" style="min-height: 140px;">[ 3D structure visualization ]</div>
+        </div>
+
+        <div class="model-card">
+          <div class="model-header">
+            <span class="model-icon">📊</span>
+            <h3>Activity Prediction</h3>
+          </div>
+          <div class="placeholder-sm" style="margin-bottom: 1rem;">
+            Describe any machine learning models used to predict AMP activity, selectivity, or toxicity.
+          </div>
+          <div class="placeholder" style="min-height: 140px;">[ Model performance metrics or ROC curve ]</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── RESULTS ────────────────────────────────────────────── -->
+  <section class="section">
+    <div class="container">
+      <p class="section-label">Findings</p>
+      <h2 class="section-title">Computational Results</h2>
+      <div class="two-col">
+        <div class="placeholder" style="min-height: 180px;">
+          Summarize your key computational findings. What predictions did your models make? How were those validated experimentally?
+        </div>
+        <div class="placeholder" style="min-height: 180px;">[ Supporting figure, heatmap, or table ]</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CODE & REPRODUCIBILITY ─────────────────────────────── -->
+  <section class="section" style="padding-top: 0; background: var(--blue-faint);">
+    <div class="container">
+      <p class="section-label">Open science</p>
+      <h2 class="section-title">Code & Reproducibility</h2>
+      <div class="placeholder" style="max-width: 800px; min-height: 100px;">
+        Link to your GitHub repository, describe how others can reproduce your analysis, and list key dependencies or software versions used.
+      </div>
+    </div>
+  </section>
+
 </BaseLayout>
+
+<style>
+  .model-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .model-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .model-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .model-icon { font-size: 1.5rem; }
+
+  .model-card h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+    margin-top: 2rem;
+  }
+
+  @media (max-width: 640px) {
+    .two-col { grid-template-columns: 1fr; }
+  }
+</style>
